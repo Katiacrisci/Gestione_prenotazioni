@@ -23,7 +23,7 @@ public class User {
     private String fullName;
     private String email;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @ToString.Exclude
     private List<Booking> bookings;
 
