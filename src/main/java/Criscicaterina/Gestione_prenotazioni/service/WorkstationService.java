@@ -16,4 +16,8 @@ public class WorkstationService {
     public List<Workstation> findWorkstations(WorkstationType type, String city) {
        return workstationRepository.findWorkstationsByWorkstationTypeAndCity(type, city);
     }
+
+    public void save(Workstation workstation) {
+        workstationRepository.save(workstation);
+    }
 }

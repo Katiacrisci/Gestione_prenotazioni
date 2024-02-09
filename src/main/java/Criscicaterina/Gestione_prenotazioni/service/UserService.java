@@ -13,4 +13,8 @@ public class UserService {
     public User findById(Long id) {
         return userRepository.findById(id).orElseThrow(RuntimeException::new);
     }
+
+    public void save(User user) {
+        userRepository.save(user);
+    }
 }
