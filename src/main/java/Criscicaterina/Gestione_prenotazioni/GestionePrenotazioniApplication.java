@@ -13,6 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @SpringBootApplication
@@ -86,6 +87,17 @@ public class GestionePrenotazioniApplication {
 			workstationService.save(w2);
 			workstationService.save(w3);
 			workstationService.save(w4);
+
+//			User1 searches for workstations in Foggia of type private
+			List<Workstation> result = workstationService.findWorkstations(WorkstationType.PRIVATE, "Foggia");
+			result.forEach(System.out::println);
+
+			User user1 = userService.findById(1L);
+
+			result.stream()
+					.findAny()
+					.ifPresent(workstation -> bookingService.bookPlace(user1, workstation, LocalDate.now().plusDays(1)));
+
 
 
 

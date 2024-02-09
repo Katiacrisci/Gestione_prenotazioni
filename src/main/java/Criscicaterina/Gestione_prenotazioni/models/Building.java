@@ -11,6 +11,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Building {
     @Id
     @GeneratedValue
@@ -21,9 +22,11 @@ public class Building {
     private String address;
     private String city;
     @OneToMany(mappedBy = "building")
+    @ToString.Exclude
     private List<Workstation> workstations;
 
     @OneToMany(mappedBy = "building")
+    @ToString.Exclude
     private List<Booking> bookings;
 
 }

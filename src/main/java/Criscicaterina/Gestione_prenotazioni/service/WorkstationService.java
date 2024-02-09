@@ -14,8 +14,12 @@ public class WorkstationService {
     private WorkstationRepository workstationRepository;
 
     public List<Workstation> findWorkstations(WorkstationType type, String city) {
-       return workstationRepository.findWorkstationsByWorkstationTypeAndCity(type, city);
+       return workstationRepository.findWorkstationsByWorkstationTypeAndCity(type, city).stream()
+               .filter(Workstation::getIsFree)
+               .toList();
+
     }
+
 
     public void save(Workstation workstation) {
         workstationRepository.save(workstation);

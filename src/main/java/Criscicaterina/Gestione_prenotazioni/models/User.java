@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
+@ToString
 public class User {
     @Id
     @GeneratedValue
@@ -23,6 +24,7 @@ public class User {
     private String email;
 
     @OneToMany
+    @ToString.Exclude
     private List<Booking> bookings;
 
 
