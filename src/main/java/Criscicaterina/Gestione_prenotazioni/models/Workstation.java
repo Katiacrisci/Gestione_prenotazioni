@@ -18,6 +18,8 @@ public class Workstation {
     private WorkstationType type;
     private Integer capacity;
     private Boolean isFree;
+    @ManyToOne
+    private Building building;
 
 
 }
